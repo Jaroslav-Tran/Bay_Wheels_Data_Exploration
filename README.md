@@ -1,10 +1,8 @@
 # Bay_Wheels_Data_Exploration
-My exploration of a FordBike(Bay Wheels) 2019 dataset showcasing key differences between two user types of this service: customers and subscribers.
+My exploration of a FordBike(Bay Wheels) 2019 dataset showcasing key differences between two user types of this service: customers and subscribers. The key focus of this project was on data visualization.
 
-<h2> Dataset chosen </h2>
-Baywheels (FordBike) 2019 data available here: https://www.lyft.com/bikes/bay-wheels/system-data
-
-<h2> Main Findings </h2>
+### SUMMARY
+The key insights from this project were:
 <ol>
      <li> It is very likely that Subscribers are mostly daily commuters who use this service as a healthier alternative to driving a car or taking a public transportations as the peak times are around 8-9 am and 5-6 pm. </li>
      <li> Customers also have peaks around those times but the demand over the day is more or less consistent so I would assume that those are most likely tourist and use bikes for their bay area visit and trips </li>
@@ -13,23 +11,40 @@ Baywheels (FordBike) 2019 data available here: https://www.lyft.com/bikes/bay-wh
      <li> The duration for both groups (especially the customers) is much higher during the weekend.</li>
 </ol>
 
+
+### INTRODUCTION
+Bay Wheels is a regional public bicycle sharing system in the San Francisco Bay Area, California operated by Motivate in a partnership with the Metropolitan Transportation Commission and the Bay Area Air Quality Management District. Bay Wheels is the first regional and large-scale bicycle sharing system deployed in California and on the West Coast of the United States. Currently, the Bay Wheels is owned and operated by Lyft. (source: Wikipedia)
+
+The dataset contains BayWheels trip data available for public use. It contains over 2.5M data points and 15 variables for the year of 2019. To aggregate it, I needed to download datasets for each month in 2019 and merge them together into a master dataset. The monthly datasets are available here: https://www.lyft.com/bikes/bay-wheels/system-data
+
+
+### QUESTIONS INVESTIGATED
+Since the major part of the project was focused on exploratory analysis, I did not try to narrow my focus by outlining specific questions. Rather, I focused on exploring interesting variables and relationships. Naturally, once I transitioned to the explanatory phase, I realized that the most insightful parts of my exploration (included in the slide generator jupyter notebook) answer the following questions:
+<ol>
+  <li> How does the demand for the bike trips differ for customers and subscribers across months, weekdays and hour of the day? </li>
+  <li> How does the trip duration differ for customers and subscribers for weekdays and hour of the day? </li>
+  <li> What is the trip duration for bike sharers and non bike sharers? </li>
+</ol>
+
+
 <h3> How I chose to put the results into explanatory analysis </h3>
 <p> As I was quite thorough and precise with the charts and analysis during the exploratory phase, I did not need to do many changes
 in the explanatory phase. I copied the most interesting and descriptive charts to the slide generator template and used nbconvert to create a deck. </p>
 
+### PROCESS OUTLINE
+As mentioned previously, the project was divided into two parts: Bay Wheels Data Exploration covering the data wrangling and data exploration and Bay Wheels Slide Generator covering explanatory analysis.
 
-<h2> What to expect in each notebook </h2>
-
-<h3> Bay Wheels Data Exploration dataset contains </h3>
+<h3> In detail, Bay Wheels Data Exploration dataset contains </h3>
 <ol>
     <li> Step by step data gathering and data wrangling process </li>
         <ul>
+            <li> Merging monthly datasets to create fordgobike_master.csv containing data for 2019. </li>
             <li> Data Quality Issue Resolution: Converting start and end time objects into a timestamp format.</li>
             <li> Data Quality Issue Resolution: Converting bike_id, end_station_id, start_station_id from floats and int into the objects </li>
         </ul>
     <li> Univariate Exploration - Bike trip distribution among each user type: There is substantially more Subscribers (Over 20M) in this dataset than Customers (480K). That could impact potential applications statistical models. (Barplot) </li>
     <li> Univariate Exploration - Bike trip distribution among shared and unshared trips: There is substantially more non-bike sharers (2.2M) than bike sharers. (180K) (Barplot) </li>
-    <li> Univariate Exploration - Bike trip distribution each month: The peaks are in March, April and July. The low points are in May(Surprise), November and December. The distribution looks like a random distribution even though one would expect a normal distribution based on seasonality but that could be explained by the bike-friendly weather in the Bay Area throughout the year. (Barplot) </li>
+    <li> Univariate Exploration - Bike trip distribution each month: The bike trips peaks are in March, April and July. The low points are in May(Surprise), November and December. The distribution looks like a random distribution even though one would expect a normal distribution based on seasonality but that could be explained by the bike-friendly weather in the Bay Area throughout the year. (Barplot) </li>
     <li> Univariate Exploration - Bike trip distribution each weekday: Peaks on Tuesday with 427K trips. Sunday is the worst with 212K trips. The distribution is righ-skewed. (Barplot) </li>
     <li> Univariate Exploration - Bike trip distribution each hour of the day: Bimodal distribution with two peaks at 8 am and 5 pm which perfectly coincides with the commuting time. (Barplot) </li>
     <li> Univariate Exploration - A histogram of bike trip duration in minutes: Right skewed distribution with a mean of 13 minute duration. Most trips last between 5-8 minutes. (Histogram)  </li>
@@ -43,13 +58,31 @@ in the explanatory phase. I copied the most interesting and descriptive charts t
 
 <h3> Bay Wheel Slide Deck Generator contains </h3>
 <p> This notebook is a subset of the Bay Wheel Data Exploration dataset containing 
-only the Multivariate part of the analysis (With a polish) and was created to make the Nbconversion to slide deck smoother </p>
+only the Multivariate part of the analysis (With a polish) and was created to make the Nbconversion to slide deck smoother. </p>
+<p> In detail, it contains polished versions  </p>
+<ol>
+     <li> Hour by hour trip duration breakdown by each user type. </li>
+          <ul>
+               <li> Subscribers are mostly daily commuters who use this service as a healthier alternative to driving a car or taking a public transportations as the peak times are around 8-9 am and 5-6 pm.</li>
+               <li> Customers also have peaks around those times but the demand over the day is more or less consistent so I would assume that those are most likely tourist and use bikes for their bay area visit and trips </li>
+          </ul>
+     <li> Weekday bike trips by user type </li>
+          <ul>
+               <li> Where the commuters(subscribers) clearly have the most bike trips during the workweek (Mon-Fri) whereas tourists(customers) demand for the bikes is more or less the same every day.</li>
+          </ul>
+      <li> Analyzing hour by hour trip duration by user type. </li>
+          <ul>
+               <li> What is quite interesting is that the longest trip for both Subscribers and Customers happen around 3 AM in the morning. It would be interesting to look deeper and find out why. (Hypothesis: Maybe they are using the bikes after parties?) </li>
+          </ul>
+     <li> Analyzing weekday trip duration by user type </li>
+          <ul>
+               <li> My hypothesis about the reason behind the exceptionally long duration in the morning 3am hour is further supported by the weekday trip duration breakdown by user type.</li>
+               <li> We can clearly see that the duration for both groups (especially the customers) is much higher during the weekend </li>
+          </ul>
+ </ol>
 
-<h2> Process Taken </h2>
-<p> The process I followed was pretty straightforward. I defined some interesting questions, variables and possible relationships and explored them in the exploratory phase.
-Once I felt that there were enough interesting insights, I included the most interesting ones in the Slide Generator notebook (Explanatory stage) where I polished them and explained them more in depth. </p>
 
-<h2> Sources </h2>
+### Sources
 <ol>
     <li>Dataset: https://www.lyft.com/bikes/bay-wheels/system-data </li>
     <li>Seaborn documentation: https://seaborn.pydata.org/ </li>
