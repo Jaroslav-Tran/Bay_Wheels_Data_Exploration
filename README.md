@@ -26,11 +26,6 @@ Since the major part of the project was focused on exploratory analysis, I did n
   <li> What is the trip duration for bike sharers and non bike sharers? </li>
 </ol>
 
-
-<h3> How I chose to put the results into explanatory analysis </h3>
-<p> As I was quite thorough and precise with the charts and analysis during the exploratory phase, I did not need to do many changes
-in the explanatory phase. I copied the most interesting and descriptive charts to the slide generator template and used nbconvert to create a deck. </p>
-
 ### PROCESS OUTLINE
 As mentioned previously, the project was divided into two parts: Bay Wheels Data Exploration covering the data wrangling and data exploration and Bay Wheels Slide Generator covering explanatory analysis.
 
