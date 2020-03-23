@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Jaroslav-Tran/Bay_Wheels_Data_Exploration/master)
+
 # Bay_Wheels_Data_Exploration
 My exploration of a FordBike(Bay Wheels) 2019 dataset showcasing key differences between two user types of this service: customers and subscribers. The key focus of this project was on data visualization.
 
